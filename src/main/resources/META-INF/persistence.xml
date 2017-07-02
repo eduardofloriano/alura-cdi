@@ -4,23 +4,21 @@
 	version="2.0">
 	
 	
-	<persistence-unit name="livraria-postgresql">
+	<persistence-unit name="livraria-postgresql" transaction-type="RESOURCE_LOCAL">
 		
-		<provider>org.hibernate.ejb.HibernatePersistence</provider>		
+		<jta-data-source>java:jboss/datasources/AluraDS</jta-data-source>
 		<class>br.com.alura.livraria.model.Livro</class>
 		<class>br.com.alura.livraria.model.Autor</class>
+		<class>br.com.alura.livraria.model.Usuario</class>
+		<class>br.com.alura.livraria.model.Livro</class>
+		<class>br.com.alura.livraria.model.LivroDataModelo</class>
 		
-		
-		<properties>			
-			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/alura" />
-			<property name="javax.persistence.jdbc.user" value="postgres" />
-			<property name="javax.persistence.jdbc.password" value="postgres" />
-			
+		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.SunOneJtaPlatform"/> 
 		</properties>
 	</persistence-unit>
 </persistence>

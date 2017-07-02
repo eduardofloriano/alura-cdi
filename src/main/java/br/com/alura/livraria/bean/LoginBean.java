@@ -6,17 +6,15 @@ import java.util.Map;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
-import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 
+import br.com.alura.livraria.annotation.ModelView;
 import br.com.alura.livraria.dao.UsuarioDAO;
 import br.com.alura.livraria.factory.ScopeMap;
 import br.com.alura.livraria.factory.ScopeMap.Scope;
 import br.com.alura.livraria.model.Usuario;
 
-@Named
-@ViewScoped
+@ModelView
 public class LoginBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
